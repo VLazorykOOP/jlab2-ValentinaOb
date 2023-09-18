@@ -19,31 +19,33 @@ public class Main {
         }
     }
 
-    public static void main1(String[] args) {
+    public class Cursor {
+        try(
+        Scanner in = new Scanner(System.in))
+        {
 
-        public class Cursor{
-            try (Scanner in = new Scanner(System.in)) {
-            
-            int x=4,y=4;   
-            char v='|';
-            int size=5;
-            
-           
-            System.out.print("X: "+ x +", Y: "+ y);
-            System.out.print("V: "+ v);
-            System.out.print("Size: "+ size);
-            }
+            int x = 4, y = 4;
+            char v = '|';
+            int size = 5;
 
-            public static void xy(String[] args){
+            System.out.print("X: " + x + ", Y: " + y);
+            System.out.print("V: " + v);
+            System.out.print("Size: " + size);
+        }
+
+        public static void xy(String[] args){
                  try (Scanner in = new Scanner(System.in)) {
                 System.out.print("X: "+ x +", Y: "+ y);
                  }
             }
-        
-        }
+
     }
 
-    public static void xy(int[] args) {
+    public static void main1(String[] args) {
+
+    }
+
+    public void xy(int[] args) {
 
         Cursor one = new Cursor();
         one.xy();
