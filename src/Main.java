@@ -20,44 +20,40 @@ public class Main {
     }
 
     public class Cursor {
-        try(
-        Scanner in = new Scanner(System.in))
-        {
+        int x, y;
+        char v;
+        int size;
 
-            int x = 4, y = 4;
-            char v = '|';
-            int size = 5;
-
-            System.out.print("X: " + x + ", Y: " + y);
-            System.out.print("V: " + v);
-            System.out.print("Size: " + size);
+        void m0() {
+            x = 4;
+            y = 4;
+            v = '|';
+            size = 5;
         }
 
-        public static void xy(String[] args){
-                 try (Scanner in = new Scanner(System.in)) {
-                System.out.print("X: "+ x +", Y: "+ y);
-                 }
+        void m1(int a, int b) {
+            x = a;
+            y = b;
+        }
+    }
+
+    public class Main1 {
+        public static void main1() {
+            Cursor one = new Cursor();
+
+            System.out.print("X: " + one.x + ", Y: " + one.y);
+            System.out.print("V: " + one.v);
+            System.out.print("Size: " + one.size);
+
+            // m1
+            try (Scanner in = new Scanner(System.in)) {
+                int x = in.nextInt();
+                int y = in.nextInt();
             }
 
-    }
+            // m2
 
-    public static void main1(String[] args) {
-
-    }
-
-    public void xy(int[] args) {
-
-        Cursor one = new Cursor();
-        one.xy();
-
-        try (Scanner in = new Scanner(System.in)) {
-            System.out.print("X: ");
-            one.x = in.nextInt();
-            System.out.print("Y: ");
-            one.y = in.nextInt();
         }
-        one.xy();
-
     }
 
 }
