@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 class Main {
 
@@ -14,6 +15,9 @@ class Main {
 
                 case 2:
                     main2();
+
+                case 3:
+                    main3();
             }
         }
     }
@@ -42,6 +46,25 @@ class Main {
         one.S();
         one.Por();
         one.Po();
+    }
+
+    static void main3() {
+        Stack St = new Stack(10);
+
+        St.Add(1);
+        St.Add(2);
+        St.Add(3);
+        St.Add(4);
+
+        St.Del();
+
+        System.out.print("Стек: ");
+        while (!St.Empty()) {
+            int value = St.Del();
+            System.out.print(value);
+            System.out.print(" ");
+        }
+        System.out.println("");
     }
 }
 
@@ -246,5 +269,29 @@ class Pr {
             System.out.print("\n\n ~ \n\n\n");
         } else
             System.out.print("\n\n !~ \n\n\n");
+    }
+}
+
+class Stack {
+    private int max;
+    private int[] St;
+    private int top;
+
+    public Stack(int m) {
+        this.max = m;
+        St = new int[max];
+        top = -1;
+    }
+
+    public void Add(int element) {
+        St[++top] = element;
+    }
+
+    public int Del() {
+        return St[top--];
+    }
+
+    public boolean Empty() {
+        return (top == -1);
     }
 }
