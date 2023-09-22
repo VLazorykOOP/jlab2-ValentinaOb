@@ -17,7 +17,12 @@ class Main {
 
     static void main1() {
         Cur one = new Cur(4, 4, '|', 5, true);
-
+        one.x();
+        one.y();
+        one.v();
+        one.s();
+        one.vf();
+        one.vt();
     }
 }
 
@@ -36,44 +41,50 @@ class Cur {
         this.v = v;
         this.size = size;
         this.vis = vis;
-        System.out.print("X: " + x + "\nY: " + y + "\nV: \n" + v + "Size\n" + size + "Vis\n" + vis);
+        System.out.print("\nX: " + x + "\nY: " + y + "\nV: " + v + "\nSize: " + size + "\nVis: " + vis + "\n");
     }
 
     public int x() {
-        System.out.print("X: ");
-
+        x = -1;
+        System.out.print("\nX: ");
         while (x < 0) {
             try (Scanner in = new Scanner(System.in)) {
                 x = in.nextInt();
             }
         }
+        System.out.print("\nX: " + x);
         return x;
     }
 
     // method 2
     public int y() {
-        System.out.print("Y: ");
+        y = -1;
+        System.out.print("\nY: ");
         while (y < 0) {
             try (Scanner in = new Scanner(System.in)) {
                 y = in.nextInt();
             }
         }
+        System.out.print("\nY: " + y);
         return y;
     }
 
     // method 3
     public char v() {
+        v = ' ';
         System.out.print("V: ");
         while ((v != '|') || (v != '-')) {
             try (Scanner in = new Scanner(System.in)) {
                 v = in.next().charAt(v);
             }
         }
+        System.out.print("\nV: " + v);
         return v;
     }
 
     // method 4
     public int s() {
+        size = 0;
         System.out.print("Size: ");
 
         while ((size < 1) || (size > 15)) {
@@ -81,23 +92,21 @@ class Cur {
                 size = in.nextInt();
             }
         }
-
+        System.out.print("\nS: " + size);
         return size;
     }
 
     public boolean vt() {
         System.out.print("Vis: ");
-
         vis = true;
-
+        System.out.print("\nVis: " + vis);
         return vis;
     }
 
     public boolean vf() {
         System.out.print("Vis: ");
-
         vis = false;
-
+        System.out.print("\nVis: " + vis);
         return vis;
     }
 
