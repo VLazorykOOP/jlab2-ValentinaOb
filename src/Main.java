@@ -11,6 +11,9 @@ class Main {
             switch (a) {
                 case 1:
                     main1();
+
+                case 2:
+                    main2();
             }
         }
     }
@@ -26,14 +29,14 @@ class Main {
     }
 
     static void main2() {
-        int a,b;
+        int a, b;
         try (Scanner in = new Scanner(System.in)) {
-             System.out.print("\nA: ");
-                a = in.nextInt();
-             System.out.print("\nB: ");
-                b = in.nextInt();
-             System.out.print("\n")
-            }
+            System.out.print("\nA: ");
+            a = in.nextInt();
+            System.out.print("\nB: ");
+            b = in.nextInt();
+            System.out.print("\n");
+        }
         Pr one = new Pr(a, b);
         one.P();
         one.S();
@@ -221,7 +224,7 @@ class Pr {
         }
 
         if ((a % a1 != 0) || (b % b1 != 0)) {
-            System.out.print("\n\n !~ \n");
+            System.out.print("\n\n !~ \n\n\n");
         }
     }
 }
