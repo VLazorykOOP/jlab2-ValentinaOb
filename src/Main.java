@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Main {
 
-    void main() {
+    public static void main(String[] args) {
         System.out.println("Ex: ");
 
         try (Scanner in = new Scanner(System.in)) {
@@ -16,8 +16,8 @@ class Main {
     }
 
     static void main1() {
-        Cur one = new Cur(4, 4, '|', 5);
-        System.out.println(one.toString());
+        Cur one = new Cur(4, 4, '|', 5, true);
+
     }
 }
 
@@ -30,11 +30,13 @@ class Cur {
     boolean vis;
 
     // Constructor Declaration of Class
-    public Cur(int x, int y, char v, int size) {
+    public Cur(int x, int y, char v, int size, boolean vis) {
         this.x = x;
         this.y = y;
         this.v = v;
         this.size = size;
+        this.vis = vis;
+        System.out.print("X: " + x + "\nY: " + y + "\nV: \n" + v + "Size\n" + size + "Vis\n" + vis);
     }
 
     public int x() {
