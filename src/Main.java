@@ -33,7 +33,7 @@ class Main {
         try (Scanner in = new Scanner(System.in)) {
             System.out.print("\nA: ");
             a = in.nextInt();
-            System.out.print("\nB: ");
+            System.out.print("B: ");
             b = in.nextInt();
             System.out.print("\n");
         }
@@ -152,7 +152,7 @@ class Pr {
     public void Por() {
         int a1 = 4, b1 = 15;
         int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
-        System.out.print("\nA1: " + a1 + "\nB1: " + b1 + "\n");
+        System.out.print("\n\nA1: " + a1 + "\nB1: " + b1 + "\n");
         if (a < a1) {
             System.out.print("\nA < A1\n");
         }
@@ -201,30 +201,39 @@ class Pr {
             System.out.print("\nS = S1\n");
         }
 
+        System.out.print("\n\n");
     }
 
     public void Po() {
         int a1 = 4, b1 = 15;
         int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
 
-        if (a % a1 != 0) {
+        System.out.print("\n\n1: " + (a % a1) + "\n2: " + (b % b1) + "\n\n");
+        System.out.print("\n\n1: " + (a1 % a) + "\n2: " + (b1 % b) + "\n\n");
+
+        if ((a % a1 != 0) || (a1 % a != 0)) {
             System.out.print("\nA !~ A1\n");
-        }
+        } else
+            System.out.print("\nA ~ A1\n");
 
-        if (b % b1 != 0) {
+        if ((b % b1 != 0) || (b1 % b != 0)) {
             System.out.print("\nB !~ B1\n");
-        }
+        } else
+            System.out.print("\nB ~ B1\n");
 
-        if (P % P1 != 0) {
+        if ((P % P1 != 0) || (P1 % P != 0)) {
             System.out.print("\nP !~ P1\n");
-        }
+        } else
+            System.out.print("\nP ~ P1\n");
 
-        if (S % S1 != 0) {
+        if ((S % S1 != 0) || (S1 % S != 0)) {
             System.out.print("\nS !~ S1\n");
-        }
+        } else
+            System.out.print("\nS ~ S1\n");
 
-        if ((a % a1 != 0) || (b % b1 != 0)) {
+        if (((a % a1 != 0) || (a1 % a != 0)) && ((b % b1 != 0) || (b1 % b != 0))) {
             System.out.print("\n\n !~ \n\n\n");
-        }
+        } else
+            System.out.print("\n\n ~ \n\n\n");
     }
 }
