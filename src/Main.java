@@ -208,32 +208,43 @@ class Pr {
         int a1 = 4, b1 = 15;
         int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
 
-        System.out.print("\n\n1: " + (a % a1) + "\n2: " + (b % b1) + "\n\n");
-        System.out.print("\n\n1: " + (a1 % a) + "\n2: " + (b1 % b) + "\n\n");
-
-        if ((a % a1 != 0) || (a1 % a != 0)) {
-            System.out.print("\nA !~ A1\n");
-        } else
+        int r = 0;
+        if (a % a1 == 0) {
             System.out.print("\nA ~ A1\n");
+            r += 1;
 
-        if ((b % b1 != 0) || (b1 % b != 0)) {
-            System.out.print("\nB !~ B1\n");
+        } else if (a1 % a == 0) {
+            System.out.print("\nA ~ A1\n");
+            r += 1;
         } else
+            System.out.print("\nA !~ A1\n");
+
+        if (b % b1 == 0) {
             System.out.print("\nB ~ B1\n");
-
-        if ((P % P1 != 0) || (P1 % P != 0)) {
-            System.out.print("\nP !~ P1\n");
+            r += 1;
+        } else if (b1 % b == 0) {
+            System.out.print("\nB ~ B1\n");
+            r += 1;
         } else
+            System.out.print("\nB !~ B1\n");
+
+        if (P % P1 == 0) {
             System.out.print("\nP ~ P1\n");
+        } else if (P1 % P == 0)
+            System.out.print("\nP ~ P1\n");
+        else
+            System.out.print("\nP !~ P1\n");
 
-        if ((S % S1 != 0) || (S1 % S != 0)) {
-            System.out.print("\nS !~ S1\n");
-        } else
+        if (S % S1 == 0) {
             System.out.print("\nS ~ S1\n");
+        } else if (S1 % S == 0)
+            System.out.print("\nS ~ S1\n");
+        else
+            System.out.print("\nS !~ S1\n");
 
-        if (((a % a1 != 0) || (a1 % a != 0)) && ((b % b1 != 0) || (b1 % b != 0))) {
-            System.out.print("\n\n !~ \n\n\n");
-        } else
+        if (r == 2) {
             System.out.print("\n\n ~ \n\n\n");
+        } else
+            System.out.print("\n\n !~ \n\n\n");
     }
 }
