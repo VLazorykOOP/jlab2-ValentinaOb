@@ -1,12 +1,8 @@
 import java.util.Scanner;
-import java.io.*;
-import java.util.*;
-import java.util.Arrays;
-import java.util.Random;
 
-public class Main {
+class Main {
 
-    public static void main() {
+    void main() {
         System.out.println("Ex: ");
 
         try (Scanner in = new Scanner(System.in)) {
@@ -19,77 +15,88 @@ public class Main {
         }
     }
 
-    // Class Declaration
+    static void main1() {
+        Cur one = new Cur(4, 4, '|', 5);
+        System.out.println(one.toString());
+    }
+}
 
-    public class Cur {
-        int x, y;
-        char v;
-        int size;
+// Class Declaration
 
-        // Constructor Declaration of Class
-        public Cur(int x, int y, char v, int size) {
-            this.x = x;
-            this.y = y;
-            this.v = v;
-            this.size = size;
-        }
+class Cur {
+    int x, y;
+    char v;
+    int size;
+    boolean vis;
 
-        public int x() {
-            System.out.print("X: ");
+    // Constructor Declaration of Class
+    public Cur(int x, int y, char v, int size) {
+        this.x = x;
+        this.y = y;
+        this.v = v;
+        this.size = size;
+    }
 
+    public int x() {
+        System.out.print("X: ");
+
+        while (x < 0) {
             try (Scanner in = new Scanner(System.in)) {
                 x = in.nextInt();
             }
-            if ((x < 0)) {
-                throw new Error("X>=0");
-            }
-            return x;
         }
+        return x;
+    }
 
-        // method 2
-        public int y() {
-            System.out.print("Y: ");
-
+    // method 2
+    public int y() {
+        System.out.print("Y: ");
+        while (y < 0) {
             try (Scanner in = new Scanner(System.in)) {
                 y = in.nextInt();
             }
-            if ((y < 0)) {
-                throw new Error("Y>=0");
-            }
-            return y;
         }
+        return y;
+    }
 
-        // method 3
-        public char v() {
-            System.out.print("V: ");
-
+    // method 3
+    public char v() {
+        System.out.print("V: ");
+        while ((v != '|') || (v != '-')) {
             try (Scanner in = new Scanner(System.in)) {
                 v = in.next().charAt(v);
             }
-            if ((v != '|') || (v != '-')) {
-                throw new Error("v='-' or v='='");
-            }
-
-            return v;
         }
+        return v;
+    }
 
-        // method 4
-        public int s() {
-            System.out.print("Size: ");
+    // method 4
+    public int s() {
+        System.out.print("Size: ");
 
+        while ((size < 1) || (size > 15)) {
             try (Scanner in = new Scanner(System.in)) {
                 size = in.nextInt();
             }
-            if ((size < 0) || (size > 15)) {
-                throw new Error("0 <= size <= 15");
-            }
-
-            return size;
         }
 
-        public void main1() {
-            Cur one = new Cur(4, 4, '|', 5);
-            System.out.println(one.toString());
-        }
+        return size;
     }
+
+    public boolean vt() {
+        System.out.print("Vis: ");
+
+        vis = true;
+
+        return vis;
+    }
+
+    public boolean vf() {
+        System.out.print("Vis: ");
+
+        vis = false;
+
+        return vis;
+    }
+
 }
