@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Stack;
+import java.util.*;
 
 class Main {
 
@@ -58,10 +58,9 @@ class Main {
 
         St.Del();
 
-        System.out.print("Стек: ");
+        System.out.print("Steck: ");
         while (!St.Empty()) {
             int value = St.Del();
-            System.out.print(value);
             System.out.print(" ");
         }
         System.out.println("");
@@ -294,4 +293,5 @@ class Stack {
     public boolean Empty() {
         return (top == -1);
     }
+
 }
