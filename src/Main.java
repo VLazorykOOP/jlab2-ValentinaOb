@@ -24,9 +24,23 @@ class Main {
         one.vf();
         one.vt();
     }
-}
 
-// Class Declaration
+    static void main2() {
+        int a,b;
+        try (Scanner in = new Scanner(System.in)) {
+             System.out.print("\nA: ");
+                a = in.nextInt();
+             System.out.print("\nB: ");
+                b = in.nextInt();
+             System.out.print("\n")
+            }
+        Pr one = new Pr(a, b);
+        one.P();
+        one.S();
+        one.Por();
+        one.Po();
+    }
+}
 
 class Cur {
     int x, y;
@@ -110,4 +124,104 @@ class Cur {
         return vis;
     }
 
+}
+
+class Pr {
+    int a, b;
+    int P, S;
+
+    public Pr(int a, int b) {
+        this.a = a;
+        this.b = b;
+        System.out.print("\nA: " + a + "\nB: " + b + "\n");
+    }
+
+    public void P() {
+        P = 2 * a + 2 * b;
+        System.out.print("\nP: " + P);
+    }
+
+    public void S() {
+        S = a * b;
+        System.out.print("\nS: " + S);
+    }
+
+    public void Por() {
+        int a1 = 4, b1 = 15;
+        int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
+        System.out.print("\nA1: " + a1 + "\nB1: " + b1 + "\n");
+        if (a < a1) {
+            System.out.print("\nA < A1\n");
+        }
+
+        else if (a > a1) {
+            System.out.print("\nA > A1\n");
+        }
+
+        else {
+            System.out.print("\nA = A1\n");
+        }
+
+        if (b < b1) {
+            System.out.print("\nB < B1\n");
+        }
+
+        else if (b > b1) {
+            System.out.print("\nB > B1\n");
+        }
+
+        else {
+            System.out.print("\nB = B1\n");
+        }
+
+        if (P < P1) {
+            System.out.print("\nP < P1\n");
+        }
+
+        else if (P > P1) {
+            System.out.print("\nP > P1\n");
+        }
+
+        else {
+            System.out.print("\nP = P1\n");
+        }
+
+        if (S < S1) {
+            System.out.print("\nS < S1\n");
+        }
+
+        else if (S > S1) {
+            System.out.print("\nS > S1\n");
+        }
+
+        else {
+            System.out.print("\nS = S1\n");
+        }
+
+    }
+
+    public void Po() {
+        int a1 = 4, b1 = 15;
+        int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
+
+        if (a % a1 != 0) {
+            System.out.print("\nA !~ A1\n");
+        }
+
+        if (b % b1 != 0) {
+            System.out.print("\nB !~ B1\n");
+        }
+
+        if (P % P1 != 0) {
+            System.out.print("\nP !~ P1\n");
+        }
+
+        if (S % S1 != 0) {
+            System.out.print("\nS !~ S1\n");
+        }
+
+        if ((a % a1 != 0) || (b % b1 != 0)) {
+            System.out.print("\n\n !~ \n");
+        }
+    }
 }
