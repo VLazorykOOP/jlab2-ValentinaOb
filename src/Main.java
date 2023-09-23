@@ -12,12 +12,15 @@ class Main {
             switch (a) {
                 case 1:
                     main1();
+                    break;
 
                 case 2:
                     main2();
+                    break;
 
                 case 3:
                     main3();
+                    break;
             }
         }
     }
@@ -64,7 +67,6 @@ class Cur {
     int size;
     boolean vis;
 
-    // Constructor Declaration of Class
     public Cur(int x, int y, char v, int size, boolean vis) {
         this.x = x;
         this.y = y;
@@ -86,7 +88,6 @@ class Cur {
         return x;
     }
 
-    // method 2
     public int y() {
         y = -1;
         System.out.print("\nY: ");
@@ -99,7 +100,6 @@ class Cur {
         return y;
     }
 
-    // method 3
     public char v() {
         v = ' ';
         System.out.print("V: ");
@@ -112,7 +112,6 @@ class Cur {
         return v;
     }
 
-    // method 4
     public int s() {
         size = 0;
         System.out.print("Size: ");
