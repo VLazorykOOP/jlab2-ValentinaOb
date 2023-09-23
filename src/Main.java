@@ -51,11 +51,10 @@ class Main {
     static void main3() {
         Stack<Integer> st = new Stack<Integer>();
 
-        pu(st);
-        rem(st, 3);
-        se(st, 2);
+        St.pu(st);
+        St.rem(st);
+        St.se(st, 2);
 
-        System.out.println(st);
     }
 }
 
@@ -265,23 +264,30 @@ class Pr {
 
 class St {
     static void pu(Stack<Integer> st) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             st.push(i);
         }
+        System.out.println("St: " + st);
     }
 
-    static void rem(Stack<Integer> st, int a) {
-        System.out.println("Rem:");
-        Integer r = st.remove(a);
-        System.out.println("Rem el: " + r);
+    static void rem(Stack<Integer> st) {
+        System.out.println("El:");
+        try (Scanner in = new Scanner(System.in)) {
+            int a = in.nextInt();
+            st.remove(a);
+        }
+        System.out.println("St: " + st);
     }
 
     static void se(Stack<Integer> st, int el) {
-        Integer pos = (Integer) st.search(el);
+        System.out.println("El:" + el);
+        int pos = -1;
+        pos = st.search(el);
         if (pos == -1) {
             System.out.println("No el");
         } else
             System.out.println("Pos: " + pos);
+
     }
 
 }
