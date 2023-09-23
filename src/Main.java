@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 class Main {
 
@@ -48,249 +49,242 @@ class Main {
     }
 
     static void main3() {
-        Stack St = new Stack(10);
+        Stack<Integer> st = new Stack<Integer>();
 
-        St.Add(1);
-        St.Add(2);
-        St.Add(3);
-        St.Add(4);
+        push(st);
+        pop(st);
+        search(st, 2);
+    }
 
-        St.Del();
+    class Cur {
+        int x, y;
+        char v;
+        int size;
+        boolean vis;
 
-        System.out.print("Steck: ");
-        while (!St.Empty()) {
-            int value = St.Del();
-            System.out.print(" ");
+        // Constructor Declaration of Class
+        public Cur(int x, int y, char v, int size, boolean vis) {
+            this.x = x;
+            this.y = y;
+            this.v = v;
+            this.size = size;
+            this.vis = vis;
+            System.out.print("\nX: " + x + "\nY: " + y + "\nV: " + v + "\nSize: " + size + "\nVis: " + vis + "\n");
         }
-        System.out.println("");
-    }
-}
 
-class Cur {
-    int x, y;
-    char v;
-    int size;
-    boolean vis;
-
-    // Constructor Declaration of Class
-    public Cur(int x, int y, char v, int size, boolean vis) {
-        this.x = x;
-        this.y = y;
-        this.v = v;
-        this.size = size;
-        this.vis = vis;
-        System.out.print("\nX: " + x + "\nY: " + y + "\nV: " + v + "\nSize: " + size + "\nVis: " + vis + "\n");
-    }
-
-    public int x() {
-        x = -1;
-        System.out.print("\nX: ");
-        while (x < 0) {
-            try (Scanner in = new Scanner(System.in)) {
-                x = in.nextInt();
+        public int x() {
+            x = -1;
+            System.out.print("\nX: ");
+            while (x < 0) {
+                try (Scanner in = new Scanner(System.in)) {
+                    x = in.nextInt();
+                }
             }
+            System.out.print("\nX: " + x);
+            return x;
         }
-        System.out.print("\nX: " + x);
-        return x;
-    }
 
-    // method 2
-    public int y() {
-        y = -1;
-        System.out.print("\nY: ");
-        while (y < 0) {
-            try (Scanner in = new Scanner(System.in)) {
-                y = in.nextInt();
+        // method 2
+        public int y() {
+            y = -1;
+            System.out.print("\nY: ");
+            while (y < 0) {
+                try (Scanner in = new Scanner(System.in)) {
+                    y = in.nextInt();
+                }
             }
+            System.out.print("\nY: " + y);
+            return y;
         }
-        System.out.print("\nY: " + y);
-        return y;
-    }
 
-    // method 3
-    public char v() {
-        v = ' ';
-        System.out.print("V: ");
-        while ((v != '|') || (v != '-')) {
-            try (Scanner in = new Scanner(System.in)) {
-                v = in.next().charAt(v);
+        // method 3
+        public char v() {
+            v = ' ';
+            System.out.print("V: ");
+            while ((v != '|') || (v != '-')) {
+                try (Scanner in = new Scanner(System.in)) {
+                    v = in.next().charAt(v);
+                }
             }
+            System.out.print("\nV: " + v);
+            return v;
         }
-        System.out.print("\nV: " + v);
-        return v;
-    }
 
-    // method 4
-    public int s() {
-        size = 0;
-        System.out.print("Size: ");
+        // method 4
+        public int s() {
+            size = 0;
+            System.out.print("Size: ");
 
-        while ((size < 1) || (size > 15)) {
-            try (Scanner in = new Scanner(System.in)) {
-                size = in.nextInt();
+            while ((size < 1) || (size > 15)) {
+                try (Scanner in = new Scanner(System.in)) {
+                    size = in.nextInt();
+                }
             }
+            System.out.print("\nS: " + size);
+            return size;
         }
-        System.out.print("\nS: " + size);
-        return size;
+
+        public boolean vt() {
+            System.out.print("Vis: ");
+            vis = true;
+            System.out.print("\nVis: " + vis);
+            return vis;
+        }
+
+        public boolean vf() {
+            System.out.print("Vis: ");
+            vis = false;
+            System.out.print("\nVis: " + vis);
+            return vis;
+        }
+
     }
 
-    public boolean vt() {
-        System.out.print("Vis: ");
-        vis = true;
-        System.out.print("\nVis: " + vis);
-        return vis;
+    class Pr {
+        int a, b;
+        int P, S;
+
+        public Pr(int a, int b) {
+            this.a = a;
+            this.b = b;
+            System.out.print("\nA: " + a + "\nB: " + b + "\n");
+        }
+
+        public void P() {
+            P = 2 * a + 2 * b;
+            System.out.print("\nP: " + P);
+        }
+
+        public void S() {
+            S = a * b;
+            System.out.print("\nS: " + S);
+        }
+
+        public void Por() {
+            int a1 = 4, b1 = 15;
+            int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
+            System.out.print("\n\nA1: " + a1 + "\nB1: " + b1 + "\n");
+            if (a < a1) {
+                System.out.print("\nA < A1\n");
+            }
+
+            else if (a > a1) {
+                System.out.print("\nA > A1\n");
+            }
+
+            else {
+                System.out.print("\nA = A1\n");
+            }
+
+            if (b < b1) {
+                System.out.print("\nB < B1\n");
+            }
+
+            else if (b > b1) {
+                System.out.print("\nB > B1\n");
+            }
+
+            else {
+                System.out.print("\nB = B1\n");
+            }
+
+            if (P < P1) {
+                System.out.print("\nP < P1\n");
+            }
+
+            else if (P > P1) {
+                System.out.print("\nP > P1\n");
+            }
+
+            else {
+                System.out.print("\nP = P1\n");
+            }
+
+            if (S < S1) {
+                System.out.print("\nS < S1\n");
+            }
+
+            else if (S > S1) {
+                System.out.print("\nS > S1\n");
+            }
+
+            else {
+                System.out.print("\nS = S1\n");
+            }
+
+            System.out.print("\n\n");
+        }
+
+        public void Po() {
+            int a1 = 4, b1 = 15;
+            int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
+
+            int r = 0;
+            if (a % a1 == 0) {
+                System.out.print("\nA ~ A1\n");
+                r += 1;
+
+            } else if (a1 % a == 0) {
+                System.out.print("\nA ~ A1\n");
+                r += 1;
+            } else
+                System.out.print("\nA !~ A1\n");
+
+            if (b % b1 == 0) {
+                System.out.print("\nB ~ B1\n");
+                r += 1;
+            } else if (b1 % b == 0) {
+                System.out.print("\nB ~ B1\n");
+                r += 1;
+            } else
+                System.out.print("\nB !~ B1\n");
+
+            if (P % P1 == 0) {
+                System.out.print("\nP ~ P1\n");
+            } else if (P1 % P == 0)
+                System.out.print("\nP ~ P1\n");
+            else
+                System.out.print("\nP !~ P1\n");
+
+            if (S % S1 == 0) {
+                System.out.print("\nS ~ S1\n");
+            } else if (S1 % S == 0)
+                System.out.print("\nS ~ S1\n");
+            else
+                System.out.print("\nS !~ S1\n");
+
+            if (r == 2) {
+                System.out.print("\n\n ~ \n\n\n");
+            } else
+                System.out.print("\n\n !~ \n\n\n");
+        }
     }
 
-    public boolean vf() {
-        System.out.print("Vis: ");
-        vis = false;
-        System.out.print("\nVis: " + vis);
-        return vis;
+class St{
+    static void push(Stack<Integer> st){
+        for(int i = 0; i < 5; i++)
+        {
+            st.push(i);
+        }
+    }
+    
+    static void pop(Stack<Integer> st)
+    {
+        System.out.println("Pop:");
+ 
+        for(int i = 0; i < 5; i++)
+        {
+            Integer y = (Integer) st.pop();
+            System.out.println(y);
+        }
     }
 
-}
-
-class Pr {
-    int a, b;
-    int P, S;
-
-    public Pr(int a, int b) {
-        this.a = a;
-        this.b = b;
-        System.out.print("\nA: " + a + "\nB: " + b + "\n");
-    }
-
-    public void P() {
-        P = 2 * a + 2 * b;
-        System.out.print("\nP: " + P);
-    }
-
-    public void S() {
-        S = a * b;
-        System.out.print("\nS: " + S);
-    }
-
-    public void Por() {
-        int a1 = 4, b1 = 15;
-        int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
-        System.out.print("\n\nA1: " + a1 + "\nB1: " + b1 + "\n");
-        if (a < a1) {
-            System.out.print("\nA < A1\n");
-        }
-
-        else if (a > a1) {
-            System.out.print("\nA > A1\n");
-        }
-
-        else {
-            System.out.print("\nA = A1\n");
-        }
-
-        if (b < b1) {
-            System.out.print("\nB < B1\n");
-        }
-
-        else if (b > b1) {
-            System.out.print("\nB > B1\n");
-        }
-
-        else {
-            System.out.print("\nB = B1\n");
-        }
-
-        if (P < P1) {
-            System.out.print("\nP < P1\n");
-        }
-
-        else if (P > P1) {
-            System.out.print("\nP > P1\n");
-        }
-
-        else {
-            System.out.print("\nP = P1\n");
-        }
-
-        if (S < S1) {
-            System.out.print("\nS < S1\n");
-        }
-
-        else if (S > S1) {
-            System.out.print("\nS > S1\n");
-        }
-
-        else {
-            System.out.print("\nS = S1\n");
-        }
-
-        System.out.print("\n\n");
-    }
-
-    public void Po() {
-        int a1 = 4, b1 = 15;
-        int P1 = 2 * a1 + 2 * b1, S1 = a1 * b1;
-
-        int r = 0;
-        if (a % a1 == 0) {
-            System.out.print("\nA ~ A1\n");
-            r += 1;
-
-        } else if (a1 % a == 0) {
-            System.out.print("\nA ~ A1\n");
-            r += 1;
-        } else
-            System.out.print("\nA !~ A1\n");
-
-        if (b % b1 == 0) {
-            System.out.print("\nB ~ B1\n");
-            r += 1;
-        } else if (b1 % b == 0) {
-            System.out.print("\nB ~ B1\n");
-            r += 1;
-        } else
-            System.out.print("\nB !~ B1\n");
-
-        if (P % P1 == 0) {
-            System.out.print("\nP ~ P1\n");
-        } else if (P1 % P == 0)
-            System.out.print("\nP ~ P1\n");
-        else
-            System.out.print("\nP !~ P1\n");
-
-        if (S % S1 == 0) {
-            System.out.print("\nS ~ S1\n");
-        } else if (S1 % S == 0)
-            System.out.print("\nS ~ S1\n");
-        else
-            System.out.print("\nS !~ S1\n");
-
-        if (r == 2) {
-            System.out.print("\n\n ~ \n\n\n");
-        } else
-            System.out.print("\n\n !~ \n\n\n");
-    }
-}
-
-class Stack {
-    private int max;
-    private int[] St;
-    private int top;
-
-    public Stack(int m) {
-        this.max = m;
-        St = new int[max];
-        top = -1;
-    }
-
-    public void Add(int element) {
-        St[++top] = element;
-    }
-
-    public int Del() {
-        return St[top--];
-    }
-
-    public boolean Empty() {
-        return (top == -1);
+    static void search(Stack<Integer> st, int el){
+        Integer pos = (Integer) st.search(el);
+        if(pos==-1){
+            System.out.println("No el"); }
+            else
+            System.out.println("Pos: "+ pos);
     }
 
 }
