@@ -285,7 +285,7 @@ class St {
         if (pos == -1) {
             System.out.println("No el");
         } else
-            System.out.println("Pos: " + pos);
+            System.out.println("Pos: " + pos + "\n");
 
     }
 
