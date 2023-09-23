@@ -51,9 +51,11 @@ class Main {
     static void main3() {
         Stack<Integer> st = new Stack<Integer>();
 
-        push(st);
-        pop(st);
-        search(st, 2);
+        pu(st);
+        po(st);
+        se(st, 2);
+
+        System.out.println(st);
     }
 
     class Cur {
@@ -261,14 +263,14 @@ class Main {
     }
 
 class St{
-    static void push(Stack<Integer> st){
+    static void pu(Stack<Integer> st){
         for(int i = 0; i < 5; i++)
         {
             st.push(i);
         }
     }
     
-    static void pop(Stack<Integer> st)
+    static void po(Stack<Integer> st)
     {
         System.out.println("Pop:");
  
@@ -279,7 +281,7 @@ class St{
         }
     }
 
-    static void search(Stack<Integer> st, int el){
+    static void se(Stack<Integer> st, int el){
         Integer pos = (Integer) st.search(el);
         if(pos==-1){
             System.out.println("No el"); }
