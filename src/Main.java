@@ -52,12 +52,20 @@ class Main {
     }
 
     static void main3() {
-        Stack<Integer> st = new Stack<Integer>();
+        St s = new St();
+        System.out.println("Empty : " + s.isEmpty());
+        s.push(1);
+        s.push(2);
+        s.push(3);
+        s.push(4);
+        System.out.println("\nS: ");
+        s.pr();
 
-        St.pu(st);
-        St.rem(st);
-        St.se(st, 2);
+        s.pop();
+        System.out.println("\nS: ");
+        s.pr();
 
+        System.out.println("\n\n\nEl 3.Pos: " + s.search(3));
     }
 }
 
@@ -262,31 +270,56 @@ class Pr {
 }
 
 class St {
-    static void pu(Stack<Integer> st) {
-        for (int i = 0; i < 10; i++) {
-            st.push(i);
+    int top;
+    int maxsize = 5;
+    int[] stack = new int[maxsize];
+
+    St() {
+        top = -1;
+    }
+
+    boolean isEmpty() {
+        return (top < 0);
+    }
+
+    boolean push(int val) {
+        if (top == maxsize - 1) {
+            System.out.println("\nOverflow");
+            return false;
+        } else {
+            top++;
+            stack[top] = val;
+            return true;
         }
-        System.out.println("St: " + st);
     }
 
-    static void rem(Stack<Integer> st) {
-        System.out.println("El:");
-        try (Scanner in = new Scanner(System.in)) {
-            int a = in.nextInt();
-            st.remove(a);
+    boolean pop() {
+        if (top == -1) {
+            System.out.println("\nUnderflow");
+            return false;
+        } else {
+            System.out.println("\n\nItem: " + stack[top--]);
+            return true;
         }
-        System.out.println("St: " + st);
     }
 
-    static void se(Stack<Integer> st, int el) {
-        System.out.println("El:" + el);
-        int pos = -1;
-        pos = st.search(el);
-        if (pos == -1) {
-            System.out.println("No el");
-        } else
-            System.out.println("Pos: " + pos + "\n");
+    int search(int el) {
+        if (top < 0) {
+            return -1;
+        }
+        int p = -1;
+        top++;
 
+        if (stack[top] == el) {
+            p = top;
+            System.out.println("\nPos: " + p);
+        }
+        return 0;
     }
 
+    void pr() {
+        for (int i = top; i >= 0; i--) {
+            System.out.print(stack[i] + " ");
+        }
+    }
 }
