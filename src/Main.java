@@ -65,7 +65,8 @@ class Main {
         System.out.println("\nS: ");
         s.pr();
 
-        System.out.println("\n\n\nEl 3.Pos: " + s.search(3));
+        int el = 1;
+        System.out.println("\n\n\nEl " + el + ". Pos: " + s.search(el));
     }
 }
 
@@ -310,9 +311,11 @@ class St {
         int p = -1;
         top++;
 
-        if (stack[top] == el) {
-            p = top;
-            System.out.println("\nPos: " + p);
+        for (top = 0; top < 5; top++) {
+            if (stack[top] == el) {
+                p = top;
+                return p;
+            }
         }
         return 0;
     }
